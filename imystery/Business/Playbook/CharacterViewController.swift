@@ -1,5 +1,5 @@
 //
-//  PlaybookDetailViewController.swift
+//  CharacterViewController.swift
 //  imystery
 //
 //  Created by Vergil.Wang on 2018/9/29.
@@ -7,20 +7,20 @@
 
 import UIKit
 
-class PlaybookDetailViewController: BaseViewController {
+class CharacterViewController: BaseViewController {
+
+    var characterModel: CharacterModel?
     
-    lazy var viewModel = PlaybookDetailViewModel()
-    
-    lazy fileprivate var editBarBtn: UIBarButtonItem = {
-        let barBtnItem = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: #selector(editBarBtnAction))
+    lazy fileprivate var submitBarBtn: UIBarButtonItem = {
+        let barBtnItem = UIBarButtonItem(title: "提交", style: .plain, target: self, action: #selector(submitBarBtnAction))
         barBtnItem.tintColor = UIColor("#718dff")
         return barBtnItem
     }()
     
-    convenience init(playbookModel: PlaybookModel) {
+    convenience init(characterModel: CharacterModel?) {
         self.init()
         
-        viewModel.playbookModel = playbookModel
+        self.characterModel = characterModel
     }
     
     override func viewDidLoad() {
@@ -33,8 +33,7 @@ class PlaybookDetailViewController: BaseViewController {
     
     // MARK: - ============= Initialize View =============
     func initContentView() {
-        
-        navigationItem.rightBarButtonItem = editBarBtn
+        navigationItem.rightBarButtonItem = submitBarBtn
         
         //setup table view
         tableView.register(EditableTextCell.self, forCellReuseIdentifier: EditableTextCell.className())
@@ -53,15 +52,10 @@ class PlaybookDetailViewController: BaseViewController {
     
     // MARK: - ============= Constraints =============
     func initConstraints() {
-        tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.topLayoutGuide.snp.bottom)
-            make.bottom.equalTo(self.bottomLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview()
-        }
+        
     }
     
     // MARK: - ============= Notification =============
-    
     func addNotificationObservers() {
         
     }
@@ -69,36 +63,26 @@ class PlaybookDetailViewController: BaseViewController {
     // MARK: - ============= Request =============
     
     // MARK: - ============= Reload =============
-    
     @objc func reload() {
         tableView.reloadData()
     }
     
     // MARK: - ============= Action =============
-
-    @objc func editBarBtnAction() {
-        tableView.setEditing(!tableView.isEditing, animated: false)
+    @objc func submitBarBtnAction() {
+        
     }
+
 }
 
-extension PlaybookDetailViewController: UITableViewDelegate,UITableViewDataSource {
+extension CharacterViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if viewModel.playbookModel == nil {
-            return 0
-        }
-        var rowCount = 13
-        rowCount += viewModel.playbookModel?.characters?.count ?? 0
-        return rowCount
+        return 3
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row >= 13 {
-            return 92
-        } else if indexPath.row == 12 {
-            return 44
-        } else if indexPath.row == 11 {
-                return 130
+        if indexPath.row == 2 {
+            return 130
         }
         return 44
     }
@@ -203,4 +187,3 @@ extension PlaybookDetailViewController: UITableViewDelegate,UITableViewDataSourc
         
     }
 }
-

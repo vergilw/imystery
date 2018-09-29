@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIConstants.body.font
         button.setTitle("剧本库", for: .normal)
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = 3
 
 //        button.setImage(UIImage(named: <#T##String#>)?.withRenderingMode(.alwaysTemplate), for: .normal)
 //        button.addTarget(self, action: #selector(<#BtnAction#>), for: .touchUpInside)
@@ -30,7 +30,7 @@ class HomeViewController: BaseViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIConstants.body.font
         button.setTitle("十大剧本", for: .normal)
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = 3
 //        button.layer.borderWidth = 1
 //        button.layer.borderColor = UIColor("#333").cgColor
 //        button.setImage(UIImage(named: <#T##String#>)?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -44,18 +44,18 @@ class HomeViewController: BaseViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIConstants.body.font
         button.setTitle("侵权剧本", for: .normal)
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = 3
 
 //        button.setImage(UIImage(named: <#T##String#>)?.withRenderingMode(.alwaysTemplate), for: .normal)
 //        button.addTarget(self, action: #selector(<#BtnAction#>), for: .touchUpInside)
         return button
     }()
     
-//    lazy fileprivate var separatorImgView: UIImageView = {
-//        let imgView = UIImageView()
-//        imgView.backgroundColor = UIColor("#999")
-//        return imgView
-//    }()
+    lazy fileprivate var separatorView: SeparatorView = {
+        let imgView = SeparatorView()
+        imgView.backgroundColor = .white
+        return imgView
+    }()
     
     lazy var latestPlaybookLabel: UILabel = {
         let label = UILabel()
@@ -102,9 +102,9 @@ class HomeViewController: BaseViewController {
             return view
         }()
         
-//        headerView.drawSeparator(startPoint: CGPoint(width:100, height:100))
-//        headerView.drawSe
-        headerView.addSubviews([playbookLibraryBtn, playbookRecommendBtn, playbookReportBtn, latestPlaybookLabel])
+//        headerView.drawSeparator(startPoint: CGPoint(x: 0, y: 16+50+16), endPoint: CGPoint(x: UIScreen.main.bounds.size.width, y: 16+50+16))
+        
+        headerView.addSubviews([playbookLibraryBtn, playbookRecommendBtn, playbookReportBtn, separatorView, latestPlaybookLabel])
         tableView.tableHeaderView = headerView
     }
     
@@ -137,15 +137,15 @@ class HomeViewController: BaseViewController {
             make.width.equalTo(playbookRecommendBtn)
         }
         
-//        separatorImgView.snp.makeConstraints { make in
-//            make.leading.trailing.equalToSuperview()
-//            make.top.equalTo(playbookReportBtn.snp.bottom).offset(16)
-//            make.height.equalTo(0.5)
-//        }
+        separatorView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(playbookReportBtn.snp.bottom).offset(16)
+            make.height.equalTo(1)
+        }
         
         latestPlaybookLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(playbookReportBtn.snp.top).offset(16+10)
+            make.top.equalTo(playbookReportBtn.snp.bottom).offset(16+10)
         }
     }
     
@@ -192,24 +192,9 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //        if isFiltering() {
-        //            let aModel = MailService.sharedInstance.searchedMailModels[indexPath.row]
-        //            let viewController = MailDetailViewController(mailID: aModel.mailID)
-        //            navigationController?.pushViewController(viewController, animated: true)
-        //            return
-        //        }
-        //
-        //        let aModel = MailService.sharedInstance.mailModels[indexPath.row]
-        //        if let role = MailService.sharedInstance.selectedFolder?.role, role == FolderRole.drafts.rawValue {
-        //            let viewController = WriteViewController()
-        //            viewController.draftMail = aModel
-        //            let navigationController = UINavigationController(rootViewController: viewController)
-        //            navigationController.navigationBar.isTranslucent = false
-        //            present(navigationController, animated: true, completion: nil)
-        //        } else {
-        //            let viewController = MailDetailViewController(mailID: aModel.mailID)
-        //            navigationController?.pushViewController(viewController, animated: true)
-        //        }
+        let aModel = viewModel.playbookModels![indexPath.row]
+        let viewController = PlaybookDetailViewController(playbookModel: aModel)
+        navigationController?.pushViewController(viewController, animated: true)
         
     }
 }

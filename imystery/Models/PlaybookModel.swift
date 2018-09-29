@@ -12,6 +12,7 @@ class PlaybookModel: Mappable {
     var author: String?
     var studio: String?
     var publisher: String?
+    var publishedDate: Date?
     var brief: String?
     var durationMinutes: Int?
     var wordCount: Int?
@@ -23,6 +24,7 @@ class PlaybookModel: Mappable {
     var storyScore: Float?
     var platforms: [String]?
     var tags: [String]?
+    var characters: [CharacterModel]?
     
     required convenience init?(map: Map) {
         self.init()
@@ -33,6 +35,7 @@ class PlaybookModel: Mappable {
         author <- map["author.name"]
         studio <- map["studio.name"]
         publisher <- map["publisher.name"]
+        publishedDate <- map["publishedDate"]
         brief <- map["brief"]
         durationMinutes <- map["durationMinutes"]
         wordCount <- map["wordCount"]
@@ -44,5 +47,6 @@ class PlaybookModel: Mappable {
         storyScore <- map["storyScore"]
         platforms <- map["platforms"]
         tags <- map["tags"]
+        characters <- map["characters"]
     }
 }

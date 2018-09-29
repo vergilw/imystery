@@ -134,18 +134,10 @@ extension PlaybooksViewController: UITableViewDelegate,UITableViewDataSource {
 //            navigationController?.pushViewController(viewController, animated: true)
 //            return
 //        }
-//
-//        let aModel = MailService.sharedInstance.mailModels[indexPath.row]
-//        if let role = MailService.sharedInstance.selectedFolder?.role, role == FolderRole.drafts.rawValue {
-//            let viewController = WriteViewController()
-//            viewController.draftMail = aModel
-//            let navigationController = UINavigationController(rootViewController: viewController)
-//            navigationController.navigationBar.isTranslucent = false
-//            present(navigationController, animated: true, completion: nil)
-//        } else {
-//            let viewController = MailDetailViewController(mailID: aModel.mailID)
-//            navigationController?.pushViewController(viewController, animated: true)
-//        }
+
+        let aModel = viewModel.playbookModels![indexPath.row]
+        let viewController = PlaybookDetailViewController(playbookModel: aModel)
+        navigationController?.pushViewController(viewController, animated: true)
         
     }
 }

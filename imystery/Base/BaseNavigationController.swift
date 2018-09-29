@@ -31,11 +31,11 @@ class BaseNavigationController: UINavigationController, UINavigationControllerDe
         if viewControllers.count > 0 {
             interactivePopGestureRecognizer?.isEnabled = true
             viewController.hidesBottomBarWhenPushed = true
-            viewController.navigationItem.leftBarButtonItem =
-                UIBarButtonItem(image: #imageLiteral(resourceName: "Popback"),
-                                style: .plain,
-                                target: self,
-                                action: #selector(BaseNavigationController.popBtnAction(_:)))
+//            viewController.navigationItem.leftBarButtonItem =
+//                UIBarButtonItem(image: #imageLiteral(resourceName: "Popback"),
+//                                style: .plain,
+//                                target: self,
+//                                action: #selector(BaseNavigationController.popBtnAction(_:)))
         }
 
         super.pushViewController(viewController, animated: animated)
