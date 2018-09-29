@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		135BF779215F1D82004E155F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135BF778215F1D82004E155F /* HomeViewController.swift */; };
+		135BF77E215F1F63004E155F /* PublisherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135BF77D215F1F63004E155F /* PublisherViewController.swift */; };
+		135BF780215F20C2004E155F /* PlaybookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135BF77F215F20C2004E155F /* PlaybookDetailViewController.swift */; };
+		135BF783215F23AC004E155F /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135BF782215F23AC004E155F /* MeViewController.swift */; };
+		135BF785215F28BD004E155F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135BF784215F28BD004E155F /* HomeViewModel.swift */; };
+		136D30C6215F50D1003C5299 /* SeparatorImgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136D30C5215F50D1003C5299 /* SeparatorImgView.swift */; };
 		13EF4E3E215E00F3002B3456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EF4E34215E00F3002B3456 /* Assets.xcassets */; };
 		13EF4E40215E00F3002B3456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EF4E3B215E00F3002B3456 /* AppDelegate.swift */; };
 		13EF4E45215E018C002B3456 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EF4E42215E018C002B3456 /* BaseViewController.swift */; };
@@ -34,6 +40,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		135BF778215F1D82004E155F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		135BF77D215F1F63004E155F /* PublisherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherViewController.swift; sourceTree = "<group>"; };
+		135BF77F215F20C2004E155F /* PlaybookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybookDetailViewController.swift; sourceTree = "<group>"; };
+		135BF782215F23AC004E155F /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		135BF784215F28BD004E155F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		136D30C5215F50D1003C5299 /* SeparatorImgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorImgView.swift; sourceTree = "<group>"; };
 		13EF4E1A215DFF62002B3456 /* imystery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imystery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13EF4E34215E00F3002B3456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13EF4E3A215E00F3002B3456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,6 +89,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		135BF777215F1D44004E155F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				135BF778215F1D82004E155F /* HomeViewController.swift */,
+				135BF784215F28BD004E155F /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		135BF77A215F1E98004E155F /* Report */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		135BF781215F2393004E155F /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				135BF782215F23AC004E155F /* MeViewController.swift */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		136D30C4215F50B6003C5299 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				136D30C5215F50D1003C5299 /* SeparatorImgView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		13EF4E11215DFF62002B3456 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +219,10 @@
 		13EF4E3D215E00F3002B3456 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				136D30C4215F50B6003C5299 /* Common */,
+				135BF781215F2393004E155F /* Me */,
+				135BF77A215F1E98004E155F /* Report */,
+				135BF777215F1D44004E155F /* Home */,
 				13EF4E4B215E02C1002B3456 /* Author */,
 				13EF4E48215E023C002B3456 /* Playbook */,
 			);
@@ -185,8 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				13EF4E75215E14D4002B3456 /* Cells */,
-				13EF4E73215E14CE002B3456 /* PlaybooksViewModel.swift */,
 				13EF4E4E215E035A002B3456 /* PlaybooksViewController.swift */,
+				13EF4E73215E14CE002B3456 /* PlaybooksViewModel.swift */,
+				135BF77F215F20C2004E155F /* PlaybookDetailViewController.swift */,
 			);
 			path = Playbook;
 			sourceTree = "<group>";
@@ -195,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				13EF4E50215E0366002B3456 /* AuthorsViewController.swift */,
+				135BF77D215F1F63004E155F /* PublisherViewController.swift */,
 			);
 			path = Author;
 			sourceTree = "<group>";
@@ -361,9 +411,13 @@
 			files = (
 				13EF4E51215E0366002B3456 /* AuthorsViewController.swift in Sources */,
 				13EF4E5C215E049F002B3456 /* UIView+Extension.swift in Sources */,
+				136D30C6215F50D1003C5299 /* SeparatorImgView.swift in Sources */,
 				13EF4E40215E00F3002B3456 /* AppDelegate.swift in Sources */,
+				135BF785215F28BD004E155F /* HomeViewModel.swift in Sources */,
+				135BF77E215F1F63004E155F /* PublisherViewController.swift in Sources */,
 				13EF4E67215E05DD002B3456 /* NotificationConstants.swift in Sources */,
 				13EF4E66215E05DD002B3456 /* UIConstants.swift in Sources */,
+				135BF779215F1D82004E155F /* HomeViewController.swift in Sources */,
 				13EF4E74215E14CE002B3456 /* PlaybooksViewModel.swift in Sources */,
 				13EF4E79215E15C5002B3456 /* PlaybookModel.swift in Sources */,
 				13EF4E60215E049F002B3456 /* UIDevice+Extension.swift in Sources */,
@@ -375,6 +429,8 @@
 				13EF4E45215E018C002B3456 /* BaseViewController.swift in Sources */,
 				13EF4E46215E018C002B3456 /* BaseNavigationController.swift in Sources */,
 				13EF4E5B215E049F002B3456 /* NSObject+Extension.swift in Sources */,
+				135BF783215F23AC004E155F /* MeViewController.swift in Sources */,
+				135BF780215F20C2004E155F /* PlaybookDetailViewController.swift in Sources */,
 				13EF4E5D215E049F002B3456 /* Array+Extension.swift in Sources */,
 				13EF4E5E215E049F002B3456 /* Date+Extension.swift in Sources */,
 				13EF4E62215E049F002B3456 /* ObjectMapper+Extension.swift in Sources */,

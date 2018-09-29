@@ -28,4 +28,14 @@ extension UIView {
         }
     }
     
+    public func drawSeparator(startPoint: CGPoint, endPoint: CGPoint) {
+        let line = CAShapeLayer()
+        let linePath = UIBezierPath()
+        linePath.move(to: startPoint)
+        linePath.addLine(to: endPoint)
+        line.path = linePath.cgPath
+        line.strokeColor = UIColor("f2f2f2").cgColor
+        line.lineWidth = 1
+        layer.addSublayer(line)
+    }
 }
